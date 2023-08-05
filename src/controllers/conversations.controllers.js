@@ -4,8 +4,10 @@ const message = require("../utils/messages")
 const createConversation = async (req, res, next) => {
   try {
     // body: { createdBy: 2, participant: 4  }
-    const { createdBy, participants, type } = req.body;
+    const { createdBy, participants } = req.body;
+    const type = participants.length > 1 ?  "group" :  "single"
     // crear la conversacion
+    
     const conversation = await Conversations.create({ createdBy, type });
     // conversation = { id, title, creattedBy, type, createdAt, updatedAt}
     // tomar el id de la conversacion creada y agreagar a los participantes
