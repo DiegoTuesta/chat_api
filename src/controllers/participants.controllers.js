@@ -1,10 +1,9 @@
 const { Participants } = require("../models");
 const message = require("../utils/messages")
+
 const addParticipants = async (req, res, next) => {
     try {
       const { userId, conversationId } = req.body;
-
-      if(userId.length = 0  ) return res.status(400).json(message("Add Participants"))  ;
 
       const participantsArray = userId.map((participant) => ({
         userId: participant,
