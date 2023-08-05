@@ -1,9 +1,17 @@
-const { Participants } = require("../models");
+const { Participants, Conversations } = require("../models");
 const message = require("../utils/messages")
 
 const addParticipants = async (req, res, next) => {
     try {
       const { userId, conversationId } = req.body;
+
+      const dataConversation = await Conversations.findOne({
+        where : {
+          id: conversationId
+        }
+      })
+
+      if(dataConversation.type === "single") return  res.json(message("Conversation not is group! "));
 
       const participantsArray = userId.map((participant) => ({
         userId: participant,
