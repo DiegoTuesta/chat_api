@@ -6,6 +6,8 @@ const createConversation = async (req, res, next) => {
     // body: { createdBy: 2, participant: 4  }
     const { createdBy, participants } = req.body;
     const type = participants.length > 1 ?  "group" :  "single"
+
+    if(participants.length < 1 ) res.status(400).json(message("Add Participants")) ;
     // crear la conversacion
     
     const conversation = await Conversations.create({ createdBy, type });
