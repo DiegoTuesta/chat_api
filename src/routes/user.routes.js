@@ -16,14 +16,18 @@ const router = Router();
 // ? que campos debo validar
 // ? que deberia validar por cada campo
 
+//registrar usuario
 router.post("/users", registerUserValidator, createUser); //
-
+//login 
 router.post("/login", loginUserValidator, loginUser);
 
 
 // proteger este endpoint - ruta
+//obtener todos los usuarios
 router.get("/users", authenticate, getUsers );
+//obtener un solo usuario
 router.get("/users/:id", authenticate, getUser );
+//actualizar ususario
 router.put("/users/:id", authenticate, updateUser );
 
 module.exports = router;

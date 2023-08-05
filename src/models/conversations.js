@@ -23,6 +23,8 @@ module.exports = (sequelize, DataTypes) => {
       createdBy: DataTypes.INTEGER,
       conversationImage: DataTypes.STRING,
       type: DataTypes.ENUM("single", "group"),
+      createdAt:  DataTypes.DATE,
+      updatedAt: DataTypes.DATE
     },
     {
       sequelize,

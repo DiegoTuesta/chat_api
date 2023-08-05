@@ -18,6 +18,8 @@ module.exports = (sequelize, DataTypes) => {
       conversationId: DataTypes.INTEGER,
       content: DataTypes.TEXT,
       senderId: DataTypes.INTEGER,
+      createdAt:  DataTypes.DATE,
+      updatedAt: DataTypes.DATE
     },
     {
       sequelize,
